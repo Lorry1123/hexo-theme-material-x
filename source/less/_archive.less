@@ -43,9 +43,33 @@
         flex: auto;
         padding: .5em;
         font-size: @fontsize_small;
-        color: fade(@color_text_main,80%);
+        color: @color_text_main;
         i{
           color: @theme_main;
+          &.music {
+            color: @color_text_highlight;
+          }
+          &.red {
+            color: @color_mac_close;
+          }
+          &.green {
+            color: @color_mac_maximize;
+          }
+          &.yellow {
+            color: @color_mac_minimize;
+          }
+          &.blue {
+            color: @color_mac_finder;
+          }
+          &.theme {
+            color: @theme_main;
+          }
+          &.accent {
+            color: @color_text_highlight;
+          }
+          &.orange {
+            color: @color_md_deep_orange;
+          }
         }
       }
     }

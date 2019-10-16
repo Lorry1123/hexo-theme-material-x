@@ -3,12 +3,12 @@ info:
   name: Lorry 的博客
   docs: https://xaoxuu.com/wiki/material-x/
   cdn: # 把对应的那一行注释掉就使用本地的文件
-    # css:
-    #   style: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css
+    css:
+      style: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9.9/css/style.css
     js:
-      app: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js
-      search: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js
-      volantis: https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/js/volantis.min.js
+      app: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/app.js
+      search: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.9/js/search.js
+      volantis: https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0.5/js/volantis.min.js
 
 
 
@@ -50,7 +50,7 @@ backstretch:
   duration: 6000 # 持续时间（毫秒）
   fade: 2500     # 渐变（毫秒）
   images:
-    - https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg
+    - https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg
 
 
 
@@ -146,17 +146,28 @@ menu_mobile:
     url: about/
     rel: nofollow
 
-# 默认的meta信息，文章中没有配置则按照这里的配置来显示，设置为false则不显示
-# 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
-# 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
-meta:
-  header: [title, author, date, categories, counter, top]
-  footer: [updated, tags, share]
+layout:
+  # 文章列表（主页、自定义的列表）布局
+  posts:
+    # 列表中每一篇文章的meta信息
+    meta: [title, author, date, categories, top]
+    # 列表类页面的侧边栏
+    sidebar: [author, list, grid, category, tagcloud]
+  # 文章页面布局
+  article:
+    # 文章页面主体元素，你也可以在页面的Front-matter中设置
+    body: [article, comments]
+    # 默认的meta信息，文章中没有配置则按照这里的配置来显示，设置为false则不显示
+    # 其中，title只在header中有效，music和thumbnail无需在这里设置，文章中有则显示
+    # 如果tags放置在meta.header中，那么在post列表中不显示（因为卡片下方已经有了）
+    header: [title, author, date, categories, counter, top]
+    footer: [updated, tags, share]
+    # 文章页面的侧边栏
+    sidebar: [author, toc, grid, category, tagcloud, list, related_posts]
+  # 其他的页面布局暂时等于文章列表
 
-# 主体元素，你也可以在页面的Front-matter中设置
-body: [article, comments]
 
-# 侧边栏小部件，默认按下面给定的顺序全部显示，文章中还可以自定义显示一部分以及顺序
+# 侧边栏小部件配置
 sidebar:
   - widget: author
     avatar: https://avatars0.githubusercontent.com/u/24823425?s=400&u=d673cb92ba6bc42516d4835e653d07ca4508ba8e&v=4
@@ -204,7 +215,7 @@ sidebar:
       url: categories/
       rel: nofollow
   - widget: tagcloud
-    icon: fas fa-fire
+    icon: fas fa-tags
     more:
       icon: fas fa-expand-arrows-alt
       url: tags/
@@ -221,6 +232,32 @@ sidebar:
   #   server: netease   # netease（网易云音乐）tencent（QQ音乐） xiami（虾米） kugou（酷狗）
   #   type: playlist    # song （单曲） album （专辑） playlist （歌单） search （搜索）
   #   id: 2615636388     # 歌曲/专辑/歌单 ID
+  # - widget: music
+  #   icon: fas fa-compact-disc
+  #   title: "最近在听"
+  #   more:
+  #     icon: far fa-heart
+  #     url: https://music.163.com/#/user/home?id=63035382
+  #     rel: external nofollow noopener noreferrer
+  #     target: _blank
+  #   server: netease   # netease（网易云音乐）tencent（QQ音乐） xiami（虾米） kugou（酷狗）
+  #   type: playlist    # song （单曲） album （专辑） playlist （歌单） search （搜索）
+  #   id: 2615636388     # 歌曲/专辑/歌单 ID
+  # - widget: list
+  #   icon: fas fa-thumbs-up
+  #   title: 强烈推荐
+  #   rows:
+  #     - name: Hexo脚本（Mac）
+  #       url: https://xaoxuu.com/wiki/hexo.sh/
+  #     - name: 图床脚本（Mac）
+  #       url: https://xaoxuu.com/wiki/vim-cn.sh/
+  #     - name: 图片在线压缩
+  #       url: https://yasuotu.com
+  #     - name: 生成Favicon
+  #       url: https://realfavicongenerator.net
+  #     - name: 简历主题
+  #       url: https://mxclub.github.io/resume/
+
 
 
 # 社交信息
